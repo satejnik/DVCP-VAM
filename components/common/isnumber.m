@@ -1,5 +1,5 @@
 function result = isnumber(input)
-%ISVECTOR Summary of this function coming soon..
+%ISNUMBER Summary of this function coming soon..
 %   Detailed explanation coming soon..
 %
 %	Copyright © 2014 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>

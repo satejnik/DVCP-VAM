@@ -1,13 +1,14 @@
-/*	Copyright Â© 2014 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
- *	Copyright Â© 2014 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
- *	Copyright Â© 2014 TUHH-SVA Security in Distributed Applications.
- * 	All rights reserved.
+/*	Copyright © 2015 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
+ *	Copyright © 2015 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
+ *	Copyright © 2015 TUHH-SVA Security in Distributed Applications.
+ *	All rights reserved.
  *	License: http://opensource.org/licenses/BSD-3-Clause
- *	---------------------------------------------------------------------
+ *	----------------------------------------------------------------------
  */	
 
 #include <simstruc.h>
 #include <simstruc_types.h>
+#include <stdarg.h>
 #include "prototypes.h"
 #include "debug.h"
 
@@ -68,6 +69,16 @@ void vacfunc(real_T *dx, real_T *xms, SimStruct *S)
 #ifdef DEBUG
 	debug("vacfunc left.\n");
 #endif
+}
+
+void warning(const char *format , ... )
+{
+	char dest[1000];
+	va_list arglist;
+	va_start(arglist, format);
+	vsprintf(dest, format, arglist);
+	va_end(arglist);
+	mexWarnMsgTxt(dest);
 }
 
 #endif /* __PROTOTYPES_H__ */

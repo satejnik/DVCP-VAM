@@ -1,13 +1,10 @@
-classdef AttackController < handle
-%ATTACKCONTROLLER Summary of this class coming soon..
-%   Detailed explanation coming soon..
-%
-%	Copyright Â© 2014 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
-%	Copyright Â© 2014 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
-%	Copyright Â© 2014 TUHH-SVA Security in Distributed Applications.
+%	Copyright © 2015 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
+%	Copyright © 2015 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
+%	Copyright © 2015 TUHH-SVA Security in Distributed Applications.
 %	All rights reserved.
 %	License: http://opensource.org/licenses/BSD-3-Clause
 %	----------------------------------------------------------------------
+classdef AttackController < handle
     
     properties 
         Type
@@ -20,6 +17,11 @@ classdef AttackController < handle
         Signal
         Sampling
         OutputType
+    end
+    
+    properties (Constant)
+        XMEAS = 'xmeas';
+        XMV = 'xmv';
     end
     
     methods
@@ -73,11 +75,11 @@ classdef AttackController < handle
             end
             evalin(workspace, ['set_ctrl_param(''' object.Art ''',' num2str(object.Block) ',AttackControllerProperties.ATTACK.Value,''' object.Type.String ''');' ...
                                'set_ctrl_param(''' object.Art ''',' num2str(object.Block) ',AttackControllerProperties.MODE.Value,''' object.Mode.String ''');' ...
-                               'set_ctrl_param(''' object.Art ''',' num2str(object.Block) ',AttackControllerProperties.VALUE.Value,''' num2str(object.Value) ''');' ...
-                               'set_ctrl_param(''' object.Art ''',' num2str(object.Block) ',AttackControllerProperties.START.Value,''' num2str(object.Start) ''');' ...
-                               'set_ctrl_param(''' object.Art ''',' num2str(object.Block) ',AttackControllerProperties.DURATION.Value,''' num2str(object.Duration) ''');' ...
+                               'set_ctrl_param(''' object.Art ''',' num2str(object.Block) ',AttackControllerProperties.VALUE.Value,''' mat2str(object.Value) ''');' ...
+                               'set_ctrl_param(''' object.Art ''',' num2str(object.Block) ',AttackControllerProperties.START.Value,''' mat2str(object.Start) ''');' ...
+                               'set_ctrl_param(''' object.Art ''',' num2str(object.Block) ',AttackControllerProperties.DURATION.Value,''' mat2str(object.Duration) ''');' ...
                                'set_ctrl_param(''' object.Art ''',' num2str(object.Block) ',AttackControllerProperties.SIGNALVARIABLE.Value,''' object.Signal ''');' ...
-                               'set_ctrl_param(''' object.Art ''',' num2str(object.Block) ',AttackControllerProperties.SAMPLING.Value,''' num2str(object.Sampling) ''');' ...
+                               'set_ctrl_param(''' object.Art ''',' num2str(object.Block) ',AttackControllerProperties.SAMPLING.Value,''' mat2str(object.Sampling) ''');' ...
                                'set_ctrl_param(''' object.Art ''',' num2str(object.Block) ',AttackControllerProperties.CUSTOMOUTPUT.Value,''' object.OutputType.String ''');']);
         end
     end

@@ -19,7 +19,7 @@ Library {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-1688.0, -258.0, 1696.0, 1066.0]
+      Location		      [-1653.0, -113.0, 770.0, 575.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -36,16 +36,28 @@ Library {
 	$ClassName		"Simulink.ExplorerBarInfo"
 	Visible			[1]
       }
-      Object {
-	$PropName		"EditorsInfo"
-	$ObjectID		5
-	$ClassName		"Simulink.EditorInfo"
-	IsActive		[1]
-	ViewObjType		"SimulinkTopLevel"
-	LoadSaveID		"0"
-	Extents			[1646.0, 900.0]
-	ZoomFactor		[1.0]
-	Offset			[0.0, 0.0]
+      Array {
+	Type			"Simulink.EditorInfo"
+	Dimension		2
+	Object {
+	  $ObjectID		  5
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [720.0, 409.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [0.0, 53.0]
+	}
+	Object {
+	  $ObjectID		  6
+	  IsActive		  [1]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "315"
+	  Extents		  [720.0, 406.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [0.0, 0.0]
+	}
+	PropName		"EditorsInfo"
       }
     }
   }
@@ -55,9 +67,9 @@ Library {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "lexx"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Dec 22 20:21:52 2014"
-  RTWModifiedTimeStamp	  341180505
-  ModelVersionFormat	  "1.%<AutoIncrement:237>"
+  LastModifiedDate	  "Fri Feb 27 14:30:39 2015"
+  RTWModifiedTimeStamp	  346948238
+  ModelVersionFormat	  "1.%<AutoIncrement:245>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -134,13 +146,13 @@ Library {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      6
+      $ObjectID		      7
       Version		      "1.14.2"
       Array {
 	Type			"Handle"
 	Dimension		8
 	Simulink.SolverCC {
-	  $ObjectID		  7
+	  $ObjectID		  8
 	  Version		  "1.14.2"
 	  StartTime		  "0.0"
 	  StopTime		  "10.0"
@@ -175,7 +187,7 @@ Library {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  8
+	  $ObjectID		  9
 	  Version		  "1.14.2"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
@@ -208,7 +220,7 @@ Library {
 	  Refine		  "1"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  9
+	  $ObjectID		  10
 	  Version		  "1.14.2"
 	  Array {
 	    Type		    "Cell"
@@ -268,7 +280,7 @@ Library {
 	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  10
+	  $ObjectID		  11
 	  Version		  "1.14.2"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
@@ -358,7 +370,7 @@ Library {
 	  SFTransitionActionBeforeConditionDiag	"warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  11
+	  $ObjectID		  12
 	  Version		  "1.14.2"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
@@ -399,7 +411,7 @@ Library {
 	  ProdEqTarget		  on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  12
+	  $ObjectID		  13
 	  Version		  "1.14.2"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
@@ -414,7 +426,7 @@ Library {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  13
+	  $ObjectID		  14
 	  Version		  "1.14.2"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
@@ -430,7 +442,7 @@ Library {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  14
+	  $ObjectID		  15
 	  Version		  "1.14.2"
 	  Array {
 	    Type		    "Cell"
@@ -517,7 +529,7 @@ Library {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      15
+	      $ObjectID		      16
 	      Version		      "1.14.2"
 	      Array {
 		Type			"Cell"
@@ -588,7 +600,7 @@ Library {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      16
+	      $ObjectID		      17
 	      Version		      "1.14.2"
 	      Array {
 		Type			"Cell"
@@ -791,6 +803,15 @@ Library {
       Interpolate	      on
     }
     Block {
+      BlockType		      Logic
+      Operator		      "AND"
+      Inputs		      "2"
+      IconShape		      "rectangular"
+      AllPortsSameDT	      on
+      OutDataTypeStr	      "Inherit: Logical (see Configuration Parameters: Optimization)"
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      Memory
       X0		      "0"
       InheritSampleTime	      off
@@ -942,7 +963,7 @@ Library {
   }
   System {
     Name		    "VAlib"
-    Location		    [-1688, -258, 8, 808]
+    Location		    [-1653, -113, -883, 462]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -956,19 +977,19 @@ Library {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "427"
+    SIDHighWatermark	    "436"
     Block {
       BlockType		      SubSystem
       Name		      "Attack Controller"
       SID		      "186"
       Ports		      [1, 1]
-      Position		      [75, 266, 245, 344]
+      Position		      [80, 286, 250, 364]
       ZOrder		      96
       LibraryVersion	      "*1.82"
       RequestExecContextInheritance off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		17
+	$ObjectID		18
 	$ClassName		"Simulink.Mask"
 	Type			"Attack controller"
 	Description		"Attack controller block controls an attack on choosen variable on the specified time.\nAttack types: Do"
@@ -981,7 +1002,7 @@ Library {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  8
 	  Object {
-	    $ObjectID		    18
+	    $ObjectID		    19
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1038,7 +1059,7 @@ Library {
 	    "ultiport Switch/3', 'autorouting', 'on');\nend"
 	  }
 	  Object {
-	    $ObjectID		    19
+	    $ObjectID		    20
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -1055,7 +1076,7 @@ Library {
 	    "       AM_MaskEnables{4} = 'on';\nend\nset_param(gcb, 'MaskEnables', AM_MaskEnables);\n\nclear AM_MaskEnables;"
 	  }
 	  Object {
-	    $ObjectID		    20
+	    $ObjectID		    21
 	    Type		    "edit"
 	    Name		    "start"
 	    Prompt		    "Start:"
@@ -1083,7 +1104,7 @@ Library {
 	    "nalstruct');\n		clear SS_signal;\n		clear SS_start;\n		clear SS_stime;\n		clear SS_end;\n    end\n\nend\n\n"
 	  }
 	  Object {
-	    $ObjectID		    21
+	    $ObjectID		    22
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -1097,7 +1118,7 @@ Library {
 	    Enabled		    "off"
 	  }
 	  Object {
-	    $ObjectID		    22
+	    $ObjectID		    23
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -1110,7 +1131,7 @@ Library {
 	    Value		    "0"
 	  }
 	  Object {
-	    $ObjectID		    23
+	    $ObjectID		    24
 	    Type		    "edit"
 	    Name		    "signalin"
 	    Prompt		    "Signal variable:"
@@ -1139,7 +1160,7 @@ Library {
 	    ";\n	clear SI_signal;\n	clear SI_end;\nend\n\n"
 	  }
 	  Object {
-	    $ObjectID		    24
+	    $ObjectID		    25
 	    Type		    "edit"
 	    Name		    "stime"
 	    Prompt		    "Sample time:"
@@ -1164,7 +1185,7 @@ Library {
 	    "me', 'signalstruct');\n    end\n	clear SQ_signal;\n	clear SQ_start;\n	clear SQ_stime;\n	clear SQ_end;\nend\n"
 	  }
 	  Object {
-	    $ObjectID		    25
+	    $ObjectID		    26
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -1208,12 +1229,12 @@ Library {
 	  Type			  "Simulink.dialog.Container"
 	  Dimension		  2
 	  Object {
-	    $ObjectID		    26
+	    $ObjectID		    27
 	    $ClassName		    "Simulink.dialog.Group"
 	    Prompt		    "%<MaskType>"
 	    Object {
 	      $PropName		      "DialogControls"
-	      $ObjectID		      27
+	      $ObjectID		      28
 	      $ClassName	      "Simulink.dialog.Text"
 	      Prompt		      "%<MaskDescription>"
 	      Name		      "DescTextVar"
@@ -1221,36 +1242,36 @@ Library {
 	    Name		    "DescGroupVar"
 	  }
 	  Object {
-	    $ObjectID		    28
+	    $ObjectID		    29
 	    $ClassName		    "Simulink.dialog.TabContainer"
 	    Array {
 	      Type		      "Simulink.dialog.Tab"
 	      Dimension		      3
 	      Object {
-		$ObjectID		29
+		$ObjectID		30
 		Prompt			"General"
 		Array {
 		  Type			  "Simulink.dialog.parameter.Control"
 		  Dimension		  4
 		  Object {
-		    $ObjectID		    30
+		    $ObjectID		    31
 		    $ClassName		    "Simulink.dialog.parameter.Popup"
 		    PromptLocation	    "top"
 		    Name		    "switch_mode"
 		  }
 		  Object {
-		    $ObjectID		    31
+		    $ObjectID		    32
 		    $ClassName		    "Simulink.dialog.parameter.Popup"
 		    PromptLocation	    "top"
 		    Name		    "atkMode"
 		  }
 		  Object {
-		    $ObjectID		    32
+		    $ObjectID		    33
 		    $ClassName		    "Simulink.dialog.parameter.Edit"
 		    Name		    "start"
 		  }
 		  Object {
-		    $ObjectID		    33
+		    $ObjectID		    34
 		    $ClassName		    "Simulink.dialog.parameter.Edit"
 		    Name		    "duration"
 		  }
@@ -1259,34 +1280,34 @@ Library {
 		Name			"ParameterTabVar0"
 	      }
 	      Object {
-		$ObjectID		34
+		$ObjectID		35
 		Prompt			"Integrity"
 		Object {
 		  $PropName		  "DialogControls"
-		  $ObjectID		  35
+		  $ObjectID		  36
 		  $ClassName		  "Simulink.dialog.parameter.Edit"
 		  Name			  "Value"
 		}
 		Name			"ParameterTabVar01"
 	      }
 	      Object {
-		$ObjectID		36
+		$ObjectID		37
 		Prompt			"Custom"
 		Array {
 		  Type			  "Simulink.dialog.parameter.Control"
 		  Dimension		  3
 		  Object {
-		    $ObjectID		    37
+		    $ObjectID		    38
 		    $ClassName		    "Simulink.dialog.parameter.Edit"
 		    Name		    "signalin"
 		  }
 		  Object {
-		    $ObjectID		    38
+		    $ObjectID		    39
 		    $ClassName		    "Simulink.dialog.parameter.Edit"
 		    Name		    "stime"
 		  }
 		  Object {
-		    $ObjectID		    39
+		    $ObjectID		    40
 		    $ClassName		    "Simulink.dialog.parameter.Popup"
 		    Name		    "afterend"
 		  }
@@ -1303,7 +1324,7 @@ Library {
       }
       System {
 	Name			"Attack Controller"
-	Location		[-1680, -250, -840, 800]
+	Location		[-1688, -250, 8, 812]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1316,7 +1337,7 @@ Library {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"903"
+	SIDHighWatermark	"942"
 	Block {
 	  BlockType		  Inport
 	  Name			  "input"
@@ -1337,14 +1358,14 @@ Library {
 	  OverrideUsingVariant	  "normal_forward_controller"
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    40
+	    $ObjectID		    41
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "eval(get_param([gcb '/' strrep(get_param(gcb, 'ActiveVariant'), '_', ' ')], 'MaskDisplay'));"
 	    Array {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      3
 	      Object {
-		$ObjectID		41
+		$ObjectID		42
 		Type			"popup"
 		Array {
 		  Type			  "Cell"
@@ -1364,14 +1385,14 @@ Library {
 		"d_controller');\n    otherwise\n        set_param(gcb, 'OverrideUsingVariant', 'normal_forward_controller');\nend"
 	      }
 	      Object {
-		$ObjectID		42
+		$ObjectID		43
 		Type			"edit"
 		Name			"start"
 		Prompt			"Start:"
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		43
+		$ObjectID		44
 		Type			"edit"
 		Name			"duration"
 		Prompt			"Duration:"
@@ -1423,7 +1444,7 @@ Library {
 	      VariantControl	      "interval_forward_controller"
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		44
+		$ObjectID		45
 		$ClassName		"Simulink.Mask"
 		Display			"disp('IFC')\nport_label('input', 1, 'normal in')\nport_label('input', 2, 'faked in')\nport_label('output'"
 		", 1, 'out')"
@@ -1537,7 +1558,7 @@ Library {
 	      VariantControl	      "normal_forward_controller"
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		45
+		$ObjectID		46
 		$ClassName		"Simulink.Mask"
 		Display			"disp('NFC')\nport_label('input', 1, 'normal in')\nport_label('input', 2, 'faked in')\nport_label('output'"
 		", 1, 'out')"
@@ -1616,7 +1637,7 @@ Library {
 	      VariantControl	      "periodical_forward_controller"
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		46
+		$ObjectID		47
 		$ClassName		"Simulink.Mask"
 		Display			"disp('PFC')\nport_label('input', 1, 'normal in')\nport_label('input', 2, 'faked in')\nport_label('output'"
 		", 1, 'out')"
@@ -1726,7 +1747,7 @@ Library {
 	      VariantControl	      "step_forward_controller"
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		47
+		$ObjectID		48
 		$ClassName		"Simulink.Mask"
 		Display			"disp('SFC')\nport_label('input', 1, 'normal in')\nport_label('input', 2, 'faked in')\nport_label('output'"
 		", 1, 'out')"
@@ -1871,6 +1892,14 @@ Library {
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
+	  BlockType		  RateTransition
+	  Name			  "Rate Transition"
+	  SID			  "186:942"
+	  Position		  [530, 169, 570, 211]
+	  ZOrder		  837
+	  Deterministic		  off
+	}
+	Block {
 	  BlockType		  Constant
 	  Name			  "ReplaceBlock"
 	  SID			  "186:903"
@@ -1923,23 +1952,6 @@ Library {
 	  Branch {
 	    ZOrder		    3
 	    DstBlock		    "Switch"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "Attack Type Controller"
-	  SrcPort		  1
-	  Points		  [39, 0]
-	  Branch {
-	    ZOrder		    5
-	    Points		    [0, 90]
-	    DstBlock		    "Memory"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    6
-	    DstBlock		    "output"
 	    DstPort		    1
 	  }
 	}
@@ -2010,6 +2022,30 @@ Library {
 	  DstBlock		  "Multiport\nSwitch"
 	  DstPort		  3
 	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Attack Type Controller"
+	  SrcPort		  1
+	  Points		  [39, 0]
+	  Branch {
+	    ZOrder		    42
+	    DstBlock		    "Rate Transition"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    5
+	    Points		    [0, 90]
+	    DstBlock		    "Memory"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  43
+	  SrcBlock		  "Rate Transition"
+	  SrcPort		  1
+	  DstBlock		  "output"
+	  DstPort		  1
+	}
       }
     }
     Block {
@@ -2022,7 +2058,7 @@ Library {
       RequestExecContextInheritance off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		48
+	$ObjectID		49
 	$ClassName		"Simulink.Mask"
 	SelfModifiable		"on"
 	Display			"disp([ControllerType.FromValue(ctype).String '-Controller' ...\n    '\\nGain:' num2str(gain) ...\n    '\\n"
@@ -2032,7 +2068,7 @@ Library {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  15
 	  Object {
-	    $ObjectID		    49
+	    $ObjectID		    50
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2045,7 +2081,7 @@ Library {
 	    Value		    "1 (Proportional only)"
 	  }
 	  Object {
-	    $ObjectID		    50
+	    $ObjectID		    51
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2058,7 +2094,7 @@ Library {
 	    Value		    "1 (automatic)"
 	  }
 	  Object {
-	    $ObjectID		    51
+	    $ObjectID		    52
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2071,7 +2107,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    52
+	    $ObjectID		    53
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2084,7 +2120,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    53
+	    $ObjectID		    54
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2097,7 +2133,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    54
+	    $ObjectID		    55
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2110,7 +2146,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    55
+	    $ObjectID		    56
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2123,7 +2159,7 @@ Library {
 	    Value		    "2"
 	  }
 	  Object {
-	    $ObjectID		    56
+	    $ObjectID		    57
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2136,7 +2172,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    57
+	    $ObjectID		    58
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2149,42 +2185,42 @@ Library {
 	    Value		    "2"
 	  }
 	  Object {
-	    $ObjectID		    58
+	    $ObjectID		    59
 	    Type		    "edit"
 	    Name		    "deadtime"
 	    Prompt		    "Dead time: (in minutes)"
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    59
+	    $ObjectID		    60
 	    Type		    "edit"
 	    Name		    "tau"
 	    Prompt		    "Lag time: (in minutes)"
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    60
+	    $ObjectID		    61
 	    Type		    "edit"
 	    Name		    "tsampling"
 	    Prompt		    "Sampling time: (in minutes)"
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    61
+	    $ObjectID		    62
 	    Type		    "edit"
 	    Name		    "x0mv"
 	    Prompt		    "MV:"
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    62
+	    $ObjectID		    63
 	    Type		    "edit"
 	    Name		    "x0xs"
 	    Prompt		    "XS:"
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    63
+	    $ObjectID		    64
 	    Type		    "edit"
 	    Name		    "x0sp"
 	    Prompt		    "SP:"
@@ -2194,72 +2230,72 @@ Library {
 	}
 	Object {
 	  $PropName		  "DialogControls"
-	  $ObjectID		  64
+	  $ObjectID		  65
 	  $ClassName		  "Simulink.dialog.TabContainer"
 	  Array {
 	    Type		    "Simulink.dialog.Tab"
 	    Dimension		    3
 	    Object {
-	      $ObjectID		      65
+	      $ObjectID		      66
 	      Prompt		      "Controller"
 	      Object {
 		$PropName		"DialogControls"
-		$ObjectID		66
+		$ObjectID		67
 		$ClassName		"Simulink.dialog.Group"
 		Prompt			"Parameters"
 		Array {
 		  Type			  "Simulink.dialog.parameter.Control"
 		  Dimension		  9
 		  Object {
-		    $ObjectID		    67
+		    $ObjectID		    68
 		    $ClassName		    "Simulink.dialog.parameter.Popup"
 		    PromptLocation	    "top"
 		    Name		    "ctype"
 		  }
 		  Object {
-		    $ObjectID		    68
+		    $ObjectID		    69
 		    $ClassName		    "Simulink.dialog.parameter.Popup"
 		    PromptLocation	    "top"
 		    Name		    "mode"
 		  }
 		  Object {
-		    $ObjectID		    69
+		    $ObjectID		    70
 		    $ClassName		    "Simulink.dialog.parameter.Edit"
 		    PromptLocation	    "left"
 		    Name		    "gain"
 		  }
 		  Object {
-		    $ObjectID		    70
+		    $ObjectID		    71
 		    $ClassName		    "Simulink.dialog.parameter.Edit"
 		    PromptLocation	    "left"
 		    Name		    "reset"
 		  }
 		  Object {
-		    $ObjectID		    71
+		    $ObjectID		    72
 		    $ClassName		    "Simulink.dialog.parameter.Edit"
 		    PromptLocation	    "left"
 		    Name		    "csampling"
 		  }
 		  Object {
-		    $ObjectID		    72
+		    $ObjectID		    73
 		    $ClassName		    "Simulink.dialog.parameter.Edit"
 		    PromptLocation	    "left"
 		    Name		    "lowmeas"
 		  }
 		  Object {
-		    $ObjectID		    73
+		    $ObjectID		    74
 		    $ClassName		    "Simulink.dialog.parameter.Edit"
 		    PromptLocation	    "left"
 		    Name		    "highmeas"
 		  }
 		  Object {
-		    $ObjectID		    74
+		    $ObjectID		    75
 		    $ClassName		    "Simulink.dialog.parameter.Edit"
 		    PromptLocation	    "left"
 		    Name		    "lowmv"
 		  }
 		  Object {
-		    $ObjectID		    75
+		    $ObjectID		    76
 		    $ClassName		    "Simulink.dialog.parameter.Edit"
 		    PromptLocation	    "left"
 		    Name		    "highmv"
@@ -2271,26 +2307,26 @@ Library {
 	      Name		      "Container6"
 	    }
 	    Object {
-	      $ObjectID		      76
+	      $ObjectID		      77
 	      Prompt		      "Transmitter"
 	      Object {
 		$PropName		"DialogControls"
-		$ObjectID		77
+		$ObjectID		78
 		$ClassName		"Simulink.dialog.Group"
 		Prompt			"Parameters"
 		Array {
 		  Type			  "Simulink.dialog.parameter.Edit"
 		  Dimension		  3
 		  Object {
-		    $ObjectID		    78
+		    $ObjectID		    79
 		    Name		    "deadtime"
 		  }
 		  Object {
-		    $ObjectID		    79
+		    $ObjectID		    80
 		    Name		    "tau"
 		  }
 		  Object {
-		    $ObjectID		    80
+		    $ObjectID		    81
 		    Name		    "tsampling"
 		  }
 		  PropName		  "DialogControls"
@@ -2300,28 +2336,28 @@ Library {
 	      Name		      "Container11"
 	    }
 	    Object {
-	      $ObjectID		      81
+	      $ObjectID		      82
 	      Prompt		      "Initial conditions"
 	      Object {
 		$PropName		"DialogControls"
-		$ObjectID		82
+		$ObjectID		83
 		$ClassName		"Simulink.dialog.Group"
 		Prompt			"Parameters"
 		Array {
 		  Type			  "Simulink.dialog.parameter.Edit"
 		  Dimension		  3
 		  Object {
-		    $ObjectID		    83
+		    $ObjectID		    84
 		    PromptLocation	    "left"
 		    Name		    "x0mv"
 		  }
 		  Object {
-		    $ObjectID		    84
+		    $ObjectID		    85
 		    PromptLocation	    "left"
 		    Name		    "x0xs"
 		  }
 		  Object {
-		    $ObjectID		    85
+		    $ObjectID		    86
 		    PromptLocation	    "left"
 		    Name		    "x0sp"
 		  }
@@ -2351,7 +2387,7 @@ Library {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"435"
+	SIDHighWatermark	"459"
 	Block {
 	  BlockType		  Inport
 	  Name			  "XMEAS"
@@ -2376,7 +2412,7 @@ Library {
 	  Ports			  [2, 1]
 	  Position		  [425, 205, 550, 260]
 	  ZOrder		  621
-	  LibraryVersion	  "1.223"
+	  LibraryVersion	  "1.244"
 	  SourceBlock		  "VAlib/Controller.v.1.0"
 	  SourceType		  ""
 	  ContentPreviewEnabled	  off
@@ -2512,7 +2548,7 @@ Library {
       RequestExecContextInheritance off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		86
+	$ObjectID		87
 	$ClassName		"Simulink.Mask"
 	SelfModifiable		"on"
 	Display			"fprintf('Controller')\nport_label('output', 1, 'OUT')\nport_label('input', 1, 'IN')\nport_label('input', 2"
@@ -2521,7 +2557,7 @@ Library {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  12
 	  Object {
-	    $ObjectID		    87
+	    $ObjectID		    88
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2536,7 +2572,7 @@ Library {
 	    Value		    "0 (PI)"
 	  }
 	  Object {
-	    $ObjectID		    88
+	    $ObjectID		    89
 	    Type		    "popup"
 	    Array {
 	      Type		      "Cell"
@@ -2551,7 +2587,7 @@ Library {
 	    Value		    "1 (automatic)"
 	  }
 	  Object {
-	    $ObjectID		    89
+	    $ObjectID		    90
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2564,7 +2600,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    90
+	    $ObjectID		    91
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2577,7 +2613,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    91
+	    $ObjectID		    92
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2590,7 +2626,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    92
+	    $ObjectID		    93
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2603,7 +2639,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    93
+	    $ObjectID		    94
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2616,7 +2652,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    94
+	    $ObjectID		    95
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2629,7 +2665,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    95
+	    $ObjectID		    96
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2642,7 +2678,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    96
+	    $ObjectID		    97
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2655,7 +2691,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    97
+	    $ObjectID		    98
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2668,7 +2704,7 @@ Library {
 	    Value		    "0"
 	  }
 	  Object {
-	    $ObjectID		    98
+	    $ObjectID		    99
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -2684,70 +2720,70 @@ Library {
 	}
 	Object {
 	  $PropName		  "DialogControls"
-	  $ObjectID		  99
+	  $ObjectID		  100
 	  $ClassName		  "Simulink.dialog.TabContainer"
 	  Array {
 	    Type		    "Simulink.dialog.Tab"
 	    Dimension		    2
 	    Object {
-	      $ObjectID		      100
+	      $ObjectID		      101
 	      Prompt		      "Parameters"
 	      Array {
 		Type			"Simulink.dialog.parameter.Control"
 		Dimension		10
 		Object {
-		  $ObjectID		  101
+		  $ObjectID		  102
 		  $ClassName		  "Simulink.dialog.parameter.Popup"
 		  Name			  "ctype"
 		}
 		Object {
-		  $ObjectID		  102
+		  $ObjectID		  103
 		  $ClassName		  "Simulink.dialog.parameter.Popup"
 		  Name			  "mode"
 		}
 		Object {
-		  $ObjectID		  103
-		  $ClassName		  "Simulink.dialog.parameter.Edit"
-		  Name			  "pgain"
-		}
-		Object {
 		  $ObjectID		  104
 		  $ClassName		  "Simulink.dialog.parameter.Edit"
-		  PromptLocation	  "left"
-		  Name			  "gain"
+		  Name			  "pgain"
 		}
 		Object {
 		  $ObjectID		  105
 		  $ClassName		  "Simulink.dialog.parameter.Edit"
 		  PromptLocation	  "left"
-		  Name			  "reset"
+		  Name			  "gain"
 		}
 		Object {
 		  $ObjectID		  106
 		  $ClassName		  "Simulink.dialog.parameter.Edit"
 		  PromptLocation	  "left"
-		  Name			  "sampling"
+		  Name			  "reset"
 		}
 		Object {
 		  $ObjectID		  107
 		  $ClassName		  "Simulink.dialog.parameter.Edit"
 		  PromptLocation	  "left"
-		  Name			  "lowmeas"
+		  Name			  "sampling"
 		}
 		Object {
 		  $ObjectID		  108
 		  $ClassName		  "Simulink.dialog.parameter.Edit"
 		  PromptLocation	  "left"
-		  Name			  "highmeas"
+		  Name			  "lowmeas"
 		}
 		Object {
 		  $ObjectID		  109
 		  $ClassName		  "Simulink.dialog.parameter.Edit"
 		  PromptLocation	  "left"
-		  Name			  "lowmv"
+		  Name			  "highmeas"
 		}
 		Object {
 		  $ObjectID		  110
+		  $ClassName		  "Simulink.dialog.parameter.Edit"
+		  PromptLocation	  "left"
+		  Name			  "lowmv"
+		}
+		Object {
+		  $ObjectID		  111
 		  $ClassName		  "Simulink.dialog.parameter.Edit"
 		  PromptLocation	  "left"
 		  Name			  "highmv"
@@ -2757,17 +2793,17 @@ Library {
 	      Name		      "Container3"
 	    }
 	    Object {
-	      $ObjectID		      111
+	      $ObjectID		      112
 	      Prompt		      "Initial Conditions"
 	      Array {
 		Type			"Simulink.dialog.parameter.Edit"
 		Dimension		2
 		Object {
-		  $ObjectID		  112
+		  $ObjectID		  113
 		  Name			  "mvx0"
 		}
 		Object {
-		  $ObjectID		  113
+		  $ObjectID		  114
 		  Name			  "xix0"
 		}
 		PropName		"DialogControls"
@@ -2794,7 +2830,7 @@ Library {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"591"
+	SIDHighWatermark	"666"
 	Block {
 	  BlockType		  Inport
 	  Name			  "Input"
@@ -3236,28 +3272,28 @@ Library {
       RequestExecContextInheritance off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		114
+	$ObjectID		115
 	$ClassName		"Simulink.Mask"
 	Display			"x = [0 1 1 2 2 3];\ny = [0 0 1 1 0 0];\nplot(x,y)"
 	Array {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  3
 	  Object {
-	    $ObjectID		    115
+	    $ObjectID		    116
 	    Type		    "edit"
 	    Name		    "amplitude"
 	    Prompt		    "Amplitude:"
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    116
+	    $ObjectID		    117
 	    Type		    "edit"
 	    Name		    "duration"
 	    Prompt		    "Pulse width:"
 	    Value		    "5"
 	  }
 	  Object {
-	    $ObjectID		    117
+	    $ObjectID		    118
 	    Type		    "edit"
 	    Name		    "delay"
 	    Prompt		    "Pulse delay:"
@@ -3357,7 +3393,7 @@ Library {
       RequestExecContextInheritance off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		118
+	$ObjectID		119
 	$ClassName		"Simulink.Mask"
 	Type			"Pause"
 	Description		"Make a pause at spiecified time"
@@ -3365,7 +3401,7 @@ Library {
 	" 0])"
 	Object {
 	  $PropName		  "Parameters"
-	  $ObjectID		  119
+	  $ObjectID		  120
 	  $ClassName		  "Simulink.MaskParameter"
 	  Type			  "promote"
 	  Array {
@@ -3382,11 +3418,11 @@ Library {
 	  Type			  "Simulink.dialog.Group"
 	  Dimension		  2
 	  Object {
-	    $ObjectID		    120
+	    $ObjectID		    121
 	    Prompt		    "%<MaskType>"
 	    Object {
 	      $PropName		      "DialogControls"
-	      $ObjectID		      121
+	      $ObjectID		      122
 	      $ClassName	      "Simulink.dialog.Text"
 	      Prompt		      "%<MaskDescription>"
 	      Name		      "DescTextVar"
@@ -3394,11 +3430,11 @@ Library {
 	    Name		    "DescGroupVar"
 	  }
 	  Object {
-	    $ObjectID		    122
+	    $ObjectID		    123
 	    Prompt		    "Parameters"
 	    Object {
 	      $PropName		      "DialogControls"
-	      $ObjectID		      123
+	      $ObjectID		      124
 	      $ClassName	      "Simulink.dialog.parameter.Edit"
 	      Name		      "Value"
 	    }
@@ -3409,8 +3445,8 @@ Library {
       }
       System {
 	Name			"Pause"
-	Location		[-8, 0, 1288, 786]
-	Open			off
+	Location		[-1653, -113, -883, 462]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -3423,59 +3459,126 @@ Library {
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
 	Block {
+	  BlockType		  Logic
+	  Name			  "And"
+	  SID			  "431"
+	  Ports			  [2, 1]
+	  Position		  [240, 61, 270, 94]
+	  ZOrder		  560
+	  AllPortsSameDT	  off
+	  OutDataTypeStr	  "boolean"
+	}
+	Block {
 	  BlockType		  Assertion
 	  Name			  "Assertion"
 	  SID			  "311"
-	  Position		  [190, 47, 250, 93]
+	  Position		  [350, 57, 410, 103]
 	  ZOrder		  533
 	  AssertionFailFcn	  "set_param(bdroot,'SimulationCommand','pause'),\ndisp(sprintf('\\nSimulation paused.'))"
 	  StopWhenAssertionFail	  off
 	}
 	Block {
 	  BlockType		  Clock
-	  Name			  "Clock"
-	  SID			  "312"
-	  Position		  [25, 35, 45, 55]
-	  ZOrder		  534
+	  Name			  "Clock1"
+	  SID			  "432"
+	  Position		  [65, 35, 85, 55]
+	  ZOrder		  557
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Compare\nTo Zero"
+	  SID			  "433"
+	  Ports			  [1, 1]
+	  Position		  [155, 150, 185, 180]
+	  ZOrder		  561
+	  LibraryVersion	  "1.287"
+	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
+	  SourceType		  "Compare To Zero"
+	  ContentPreviewEnabled	  off
+	  relop			  ">="
+	  OutDataTypeStr	  "boolean"
+	  ZeroCross		  on
 	}
 	Block {
 	  BlockType		  Constant
 	  Name			  "Constant"
-	  SID			  "313"
-	  Position		  [20, 75, 50, 105]
-	  ZOrder		  535
+	  SID			  "434"
+	  Position		  [60, 75, 90, 105]
+	  ZOrder		  558
 	  Value			  "Value"
 	}
 	Block {
+	  BlockType		  Logic
+	  Name			  "Not"
+	  SID			  "435"
+	  Ports			  [1, 1]
+	  Position		  [290, 63, 320, 97]
+	  ZOrder		  562
+	  Operator		  "NOT"
+	  AllPortsSameDT	  off
+	  OutDataTypeStr	  "boolean"
+	}
+	Block {
 	  BlockType		  RelationalOperator
-	  Name			  "Relational\nOperator"
-	  SID			  "314"
+	  Name			  "Relational\nOperator1"
+	  SID			  "436"
 	  Ports			  [2, 1]
-	  Position		  [110, 24, 145, 111]
-	  ZOrder		  536
-	  Operator		  "~="
+	  Position		  [150, 24, 185, 111]
+	  ZOrder		  559
 	  InputSameDT		  off
 	  OutDataTypeStr	  "boolean"
 	}
 	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Constant"
+	  ZOrder		  7
+	  SrcBlock		  "Clock1"
 	  SrcPort		  1
-	  DstBlock		  "Relational\nOperator"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  3
-	  SrcBlock		  "Relational\nOperator"
-	  SrcPort		  1
-	  DstBlock		  "Assertion"
+	  DstBlock		  "Relational\nOperator1"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Clock"
+	  ZOrder		  8
+	  SrcBlock		  "Relational\nOperator1"
 	  SrcPort		  1
-	  DstBlock		  "Relational\nOperator"
+	  DstBlock		  "And"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  11
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  Branch {
+	    ZOrder		    10
+	    Points		    [0, 75]
+	    DstBlock		    "Compare\nTo Zero"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    9
+	    DstBlock		    "Relational\nOperator1"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  ZOrder		  12
+	  SrcBlock		  "And"
+	  SrcPort		  1
+	  DstBlock		  "Not"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "Compare\nTo Zero"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, -80]
+	  DstBlock		  "And"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Not"
+	  SrcPort		  1
+	  DstBlock		  "Assertion"
 	  DstPort		  1
 	}
       }
@@ -3490,7 +3593,7 @@ Library {
       RequestExecContextInheritance off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		124
+	$ObjectID		125
 	$ClassName		"Simulink.Mask"
 	SelfModifiable		"on"
 	Display			"fprintf('Transmitter')\nport_label('output', 1, 'OUT')\nport_label('input', 1, 'IN')"
@@ -3498,7 +3601,7 @@ Library {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  7
 	  Object {
-	    $ObjectID		    125
+	    $ObjectID		    126
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -3511,7 +3614,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    126
+	    $ObjectID		    127
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -3524,7 +3627,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    127
+	    $ObjectID		    128
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -3537,7 +3640,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    128
+	    $ObjectID		    129
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -3550,7 +3653,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    129
+	    $ObjectID		    130
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -3563,7 +3666,7 @@ Library {
 	    Value		    "1"
 	  }
 	  Object {
-	    $ObjectID		    130
+	    $ObjectID		    131
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -3576,7 +3679,7 @@ Library {
 	    Value		    "0"
 	  }
 	  Object {
-	    $ObjectID		    131
+	    $ObjectID		    132
 	    Type		    "promote"
 	    Array {
 	      Type		      "Cell"
@@ -3592,35 +3695,35 @@ Library {
 	}
 	Object {
 	  $PropName		  "DialogControls"
-	  $ObjectID		  132
+	  $ObjectID		  133
 	  $ClassName		  "Simulink.dialog.TabContainer"
 	  Array {
 	    Type		    "Simulink.dialog.Tab"
 	    Dimension		    2
 	    Object {
-	      $ObjectID		      133
+	      $ObjectID		      134
 	      Prompt		      "Parameters"
 	      Array {
 		Type			"Simulink.dialog.parameter.Edit"
 		Dimension		5
 		Object {
-		  $ObjectID		  134
+		  $ObjectID		  135
 		  Name			  "deadtime"
 		}
 		Object {
-		  $ObjectID		  135
+		  $ObjectID		  136
 		  Name			  "tau"
 		}
 		Object {
-		  $ObjectID		  136
+		  $ObjectID		  137
 		  Name			  "sampling"
 		}
 		Object {
-		  $ObjectID		  137
+		  $ObjectID		  138
 		  Name			  "lowmeas"
 		}
 		Object {
-		  $ObjectID		  138
+		  $ObjectID		  139
 		  Name			  "highmeas"
 		}
 		PropName		"DialogControls"
@@ -3628,17 +3731,17 @@ Library {
 	      Name		      "Container3"
 	    }
 	    Object {
-	      $ObjectID		      139
+	      $ObjectID		      140
 	      Prompt		      "Initial Conditions"
 	      Array {
 		Type			"Simulink.dialog.parameter.Edit"
 		Dimension		2
 		Object {
-		  $ObjectID		  140
+		  $ObjectID		  141
 		  Name			  "xxx0"
 		}
 		Object {
-		  $ObjectID		  141
+		  $ObjectID		  142
 		  Name			  "yyy0"
 		}
 		PropName		"DialogControls"
@@ -3665,7 +3768,7 @@ Library {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"508"
+	SIDHighWatermark	"547"
 	SIDPrevWatermark	"414"
 	Block {
 	  BlockType		  Inport

@@ -1,13 +1,10 @@
-function set_pause(input)
-%SET_PAUSE Summary of this function coming soon..
-%   Detailed explanation coming soon..
-%
-%	Copyright Â© 2014 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
-%	Copyright Â© 2014 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
-%	Copyright Â© 2014 TUHH-SVA Security in Distributed Applications.
+%	Copyright © 2015 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
+%	Copyright © 2015 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
+%	Copyright © 2015 TUHH-SVA Security in Distributed Applications.
 %	All rights reserved.
 %	License: http://opensource.org/licenses/BSD-3-Clause
 %	----------------------------------------------------------------------
+function set_pause(input)
 
     if ischar(input)
         set_param([bdroot '/Pause'], 'Value', input);
@@ -15,7 +12,7 @@ function set_pause(input)
     end
 
     if isnumeric(input) && max(size(input)) < 2
-        set_param([bdroot '/Pause'], 'Value', num2str(input));
+        set_param([bdroot '/Pause'], 'Value', mat2str(input));
         return;
     end
     

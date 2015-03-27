@@ -13,12 +13,12 @@
  *	version 1.1
  *	:Disturbances can be now separately and independently enabled or disabled
  *	
- *	Copyright Â© 2014 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
- *	Copyright Â© 2014 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
- *	Copyright Â© 2014 TUHH-SVA Security in Distributed Applications.
- * 	All rights reserved.
+ *	Copyright © 2015 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
+ *	Copyright © 2015 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
+ *	Copyright © 2015 TUHH-SVA Security in Distributed Applications.
+ *	All rights reserved.
  *	License: http://opensource.org/licenses/BSD-3-Clause
- *	---------------------------------------------------------------------
+ *	----------------------------------------------------------------------
  */
 
 #include <stdio.h>
@@ -224,7 +224,7 @@ void VAModel(double *dstatesdt, double *states_out, double *MVs_out, double *mea
     double Level_Vaporizer[1], y_Vaporizer[7], T_Vaporizer[1], P_Vaporizer[1];
     double x_Organic[7], T_Organic[1], x_Aqueous[7], T_Aqueous[1];
     double states_abs[72], states_vap[8], states_rct[70], states_sep[16], states_col[73]; 
-    double dstatesdt_abs[72], dstatesdt_vap[8], dstatesdt_rct[70], dstatesdt_sep[16], dstatesdt_col[73], dstatesdt_other[7];
+    double dstatesdt_abs[72], dstatesdt_vap[8], dstatesdt_rct[80], dstatesdt_sep[16], dstatesdt_col[73], dstatesdt_other[7];
     double Q_Circulation_out[1], Q_Scrub_out[1], Q_Condenser_out[1];
     int i, j;
     double sum1, sum2, sum3, temp_single_1[1], temp_single_2[1];
@@ -684,11 +684,15 @@ void VAModel(double *dstatesdt, double *states_out, double *MVs_out, double *mea
 	    MVs_out[i] = MVs[i];
     }
 
-    for (i=0;i<246;i++)
+	for (i=246;i<256;i++)
+	{
+        states[i] = dstatesdt_rct[i-176];
+	}
+    for (i=0;i<256;i++)
     {
        	states_out[i] = states[i];
     }
-
+	
     //if disturbance 5
     if ((disturbance_5) && (is_initial!=1))
     {

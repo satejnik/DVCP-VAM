@@ -1,16 +1,14 @@
-function settings = initSettings()
-%INITSETTINGS Summary of this function coming soon..
-%   Detailed explanation coming soon..
-%
-%	Copyright Â© 2014 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
-%	Copyright Â© 2014 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
-%	Copyright Â© 2014 TUHH-SVA Security in Distributed Applications.
+%	Copyright © 2015 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
+%	Copyright © 2015 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
+%	Copyright © 2015 TUHH-SVA Security in Distributed Applications.
 %	All rights reserved.
 %	License: http://opensource.org/licenses/BSD-3-Clause
 %	----------------------------------------------------------------------
+function settings = initSettings()
 
     settings.simulation.duration = 24; % hours
     settings.simulation.disturbances = zeros(1, 7);
+    settings.simulation.constraints = ones(1, 8);
     settings.simulation.callbacks.afterend = 'overview();';
 end
 

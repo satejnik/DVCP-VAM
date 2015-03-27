@@ -764,7 +764,7 @@ for k=0:(model_sampling_frequency*minute)
  %       disp(info);
     end
     %save information
-    if rem(k,storage_sampling_frequency/model_sampling_frequency)==0
+    if rem(k,storage_sampling_frequency*model_sampling_frequency)==0
         outInd = k*storage_sampling_frequency/model_sampling_frequency +1;
         x_history(outInd,:)=states';
         y_history(outInd,:)=[y_ss(37);y_ss(12);y_ss(23);y_ss(2);y_ss(1);y_ss(4);y_ss(5);y_ss(9);y_ss(10);MVs(10);y_ss(11);y_ss(13);MVs(13);y_ss(14);MVs(15);y_ss(15);y_ss(31);y_ss(33);y_ss(8);y_ss(28);y_ss(22);y_ss(20);y_ss(18);y_ss(19);y_ss(21);MVs(26);y_ss(27)];

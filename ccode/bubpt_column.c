@@ -8,6 +8,19 @@
 //the stop criterion is 1e-10
 //The algorithm is based on public resource
 
+/*	
+ *	Modified by Alexander Isakov on 2015
+ *	version 1.1
+ *	97-99:fix for infinite loop problem: loop breaks after 100 iterations
+ *	
+ *	Copyright © 2015 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
+ *	Copyright © 2015 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
+ *	Copyright © 2015 TUHH-SVA Security in Distributed Applications.
+ *	All rights reserved.
+ *	License: http://opensource.org/licenses/BSD-3-Clause
+ *	----------------------------------------------------------------------
+ */
+
 #include <stdio.h>
 #include <math.h>
 
@@ -31,7 +44,7 @@ void bubpt_column(double TT[], double YY[], double PP, double XX[],
     /*Y: vapor molar fraction*/
     /*Only three components 5 to 7 exist in the column unit*/   
 
-    int i, j;
+    int i, j, count;
     double sumY, f, fslope, TTT, abs_sumY1; 
     double aa[3], bb[3], cc[3], ps[3];
     double xx[3]={0., 0., 0.};
@@ -55,6 +68,7 @@ void bubpt_column(double TT[], double YY[], double PP, double XX[],
     } 
 
     TTT=TT[0];
+	count = 0;
     while(1) 
     { 
         for (i=0;i<3;i++) 
@@ -79,7 +93,11 @@ void bubpt_column(double TT[], double YY[], double PP, double XX[],
         	TTT = TTT - f/fslope;
         }
         else       	
-        	break;       
+        	break;
+		if (count++ > 100) {
+			printf("bubpt_column.c: Breaking further calculation due to infinite loop \n");
+			break;
+		}
     }
     for(i=4; i<7; i++)
         YY[i] = yy[i-4];

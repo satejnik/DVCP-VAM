@@ -22,7 +22,8 @@ void reaction_rate(double r[], double PR[], double TR[], double Clock)
 
     yr=Clock/60/24/365;
     if (TR[0]<180)
-   	    alpha=exp(-yr/0.621);
+   	    //alpha=exp(-yr/0.621);
+        alpha=exp(-yr/4.481420117724551);//changed from 0.621
     else   
     	alpha=exp(-(TR[0]-180)/50)*exp(-yr/0.621);
     TR[0]=TR[0]+273.15; /*Kelvin*/

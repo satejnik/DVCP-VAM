@@ -1,20 +1,21 @@
-/*	Copyright Â© 2014 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
- *	Copyright Â© 2014 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
- *	Copyright Â© 2014 TUHH-SVA Security in Distributed Applications.
- * 	All rights reserved.
+/*	Copyright © 2015 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
+ *	Copyright © 2015 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
+ *	Copyright © 2015 TUHH-SVA Security in Distributed Applications.
+ *	All rights reserved.
  *	License: http://opensource.org/licenses/BSD-3-Clause
- *	---------------------------------------------------------------------
+ *	----------------------------------------------------------------------
  */	
 
 /* Prototypes*/
 #ifndef __PROTOTYPES_H__
 #define __PROTOTYPES_H__
 
-#define NS 246
+#define NS 256
 #define NM 26
 #define NO 43
 #define NPAR 1
 #define ND 7
+#define NC 8
 
 //#define CONTINUOUS_STATES
 #define DISCRETE_STATES
@@ -44,19 +45,20 @@
 
 #define GETTIME(S) ssGetT(S)
 #define GETXMV(target, S) {int i; for (i=0; i<NM; i++) {target[i] = INPUT(S,0)[i];}}
-#define GETIDV(target, S) {int i; for (i=0; i<ND; i++) {target[i] = INPUT(S,0)[i+NM];}}
+#define GETIDV(target, S) {int i; for (i=0; i<ND; i++) {target[i] = INPUT(S,1)[i + NC];}}
+#define GETCON(target, S) {int i; for (i=0; i<NC; i++) {target[i] = INPUT(S,1)[i];}}
 #define DX(S) ssGetdX(S)
 #define SETSTEADY(S) steadySTS(STS(S))
 
 static real_T XMV[ NM ];
 //#define XMV(S) INPUT(S,0)
-static real_T IDV[ ND ];
+static int_T IDV[ ND ];
 //#define IDV(S) (INPUT(S,0)+sizeof(real_T)*NM)
 //static real_T STATES[ NS ];
 
 void report(const char* function, SimStruct *S);
 void vacfunc(real_T *dx, real_T *xms, SimStruct *S);
-
+void warning(const char *format , ... );
 
 #if defined(__SIMSTRUC_TYPES_H__) && !defined(__SS_SimStatus_Strings__)
 #define __SS_SimStatus_Strings__

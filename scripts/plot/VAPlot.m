@@ -1,6 +1,6 @@
-%	Copyright Â© 2014 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
-%	Copyright Â© 2014 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
-%	Copyright Â© 2014 TUHH-SVA Security in Distributed Applications.
+%	Copyright © 2015 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
+%	Copyright © 2015 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
+%	Copyright © 2015 TUHH-SVA Security in Distributed Applications.
 %	All rights reserved.
 %	License: http://opensource.org/licenses/BSD-3-Clause
 %	----------------------------------------------------------------------
@@ -29,11 +29,11 @@ maximize;
 for i=1:8
     subplot(4,2,i);
     plot(tout, simout(:,i));
-    if i<=size(setpoints,1)
-        hold on
-        plot([0 tout(end)], [setpoints(i) setpoints(i)],':r');
-        hold off
-    end
+    hold on
+    plot([0 tout(end)], [setpoints(i) setpoints(i)],':g');
+    plot([0 tout(end)], [lowlimits(i) lowlimits(i)],':r');
+    plot([0 tout(end)], [highlimits(i) highlimits(i)],':r');
+    hold off
     ylabel(simout_labels(i,:));
     xlabel('hours')
     %axis tight
@@ -48,7 +48,7 @@ for i=9:16
     plot(tout, simout(:,i));
     if i<=size(setpoints,1)
         hold on
-        plot([0 tout(end)], [setpoints(i) setpoints(i)],':r');
+        plot([0 tout(end)], [setpoints(i) setpoints(i)],':g');
         hold off
     end
     ylabel(simout_labels(i,:));
@@ -65,7 +65,7 @@ for i=17:24
     plot(tout, simout(:,i));
     if i<=size(setpoints,1)
         hold on
-        plot([0 tout(end)], [setpoints(i) setpoints(i)],':r');
+        plot([0 tout(end)], [setpoints(i) setpoints(i)],':g');
         hold off
     end
     ylabel(simout_labels(i,:));
@@ -82,7 +82,7 @@ for i=25:25
     plot(tout, simout(:,i));
     if i<=size(setpoints,1)
         hold on
-        plot([0 tout(end)], [setpoints(i) setpoints(i)],':r');
+        plot([0 tout(end)], [setpoints(i) setpoints(i)],':g');
         hold off
     end
     ylabel(simout_labels(i,:));
@@ -132,7 +132,7 @@ maximize;
 subplot(4,2,1);
 plot(tout, simout(:,1));
 hold on
-plot([0 tout(end)], [setpoints(1) setpoints(1)],':r');
+plot([0 tout(end)], [setpoints(1) setpoints(1)],':g');
 hold off
 ylabel(simout_labels(1,:));
 xlabel('hours')
@@ -142,7 +142,7 @@ xlim([0, tout(end)]);
 subplot(4,2,2);
 plot(tout, simout(:,2));
 hold on
-plot([0 tout(end)], [setpoints(2) setpoints(2)],':r');
+plot([0 tout(end)], [setpoints(2) setpoints(2)],':g');
 hold off
 ylabel(simout_labels(2,:));
 xlabel('hours')
@@ -152,7 +152,7 @@ xlim([0, tout(end)]);
 subplot(4,2,3);
 plot(tout, simout(:,7));
 hold on
-plot([0 tout(end)], [setpoints(7) setpoints(7)],':r');
+plot([0 tout(end)], [setpoints(7) setpoints(7)],':g');
 hold off
 ylabel(simout_labels(7,:));
 xlabel('hours')
@@ -162,7 +162,7 @@ xlim([0, tout(end)]);
 subplot(4,2,4);
 plot(tout, simout(:,9));
 hold on
-plot([0 tout(end)], [setpoints(9) setpoints(9)],':r');
+plot([0 tout(end)], [setpoints(9) setpoints(9)],':g');
 hold off
 ylabel(simout_labels(9,:));
 xlabel('hours')
@@ -172,7 +172,7 @@ xlim([0, tout(end)]);
 subplot(4,2,5);
 plot(tout, simout(:,17));
 hold on
-plot([0 tout(end)], [setpoints(17) setpoints(17)],':r');
+plot([0 tout(end)], [setpoints(17) setpoints(17)],':g');
 hold off
 ylabel(simout_labels(17,:));
 xlabel('hours')
@@ -182,7 +182,7 @@ xlim([0, tout(end)]);
 subplot(4,2,6);
 plot(tout, simout(:,18));
 hold on
-plot([0 tout(end)], [setpoints(18) setpoints(18)],':r');
+plot([0 tout(end)], [setpoints(18) setpoints(18)],':g');
 hold off
 ylabel(simout_labels(18,:));
 xlabel('hours')
@@ -192,7 +192,7 @@ xlim([0, tout(end)]);
 subplot(4,2,7);
 plot(tout, simout(:,20));
 hold on
-plot([0 tout(end)], [setpoints(20) setpoints(20)],':r');
+plot([0 tout(end)], [setpoints(20) setpoints(20)],':g');
 hold off
 ylabel(simout_labels(20,:));
 xlabel('hours')
@@ -202,7 +202,7 @@ xlim([0, tout(end)]);
 subplot(4,2,8);
 plot(tout, simout(:,21));
 hold on
-plot([0 tout(end)], [setpoints(21) setpoints(21)],':r');
+plot([0 tout(end)], [setpoints(21) setpoints(21)],':g');
 hold off
 ylabel(simout_labels(21,:));
 xlabel('hours')

@@ -129,7 +129,9 @@ void Reactor(double *dstatedt, double states[], double time, double Fin, double 
     for (i=0;i<NR;i++)
     {
         CC[i]=P_profile[i]/8.314/(Tg[i]+T_ref)/14.696*101.325;
-        C_C2H6[i]=CC[i]-C_O2[i]-C_CO2[i]-C_C2H4[i]-C_VAc[i]-C_H2O[i]-C_HAc[i]; 
+		//printf("CC[%d] = %f\n", i, CC[i]);
+        C_C2H6[i]=CC[i]-C_O2[i]-C_CO2[i]-C_C2H4[i]-C_VAc[i]-C_H2O[i]-C_HAc[i];
+		//printf("C_C2H6[%d] = %f\n", i, C_C2H6[i]);
     };
 
     /*------------------------------------------------------------------------------*/
@@ -204,6 +206,7 @@ void Reactor(double *dstatedt, double states[], double time, double Fin, double 
     	dstatedt[i+40]=C_H2O_t[i];
     	dstatedt[i+50]=C_HAc_t[i];
     	dstatedt[i+60]=Tg_t[i];
+		dstatedt[i+70]=C_C2H6[i];
     };
 #ifdef DEBUG
 	debug("Reactor left.\n");

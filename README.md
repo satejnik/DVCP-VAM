@@ -1,3 +1,5 @@
+![Damn Vulnerable Chemical Process](https://github.com/satejnik/DVCP-VAM/blob/master/img/collage.png "Damn Vulnerable Chemical Process")
+
 DVCP-VAM
 ========
 

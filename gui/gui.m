@@ -1,13 +1,10 @@
-function gui(varargin)
-%GUI Summary of this function coming soon..
-%   Detailed explanation coming soon..
-%
-%	Copyright Â© 2014 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
-%	Copyright Â© 2014 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
-%	Copyright Â© 2014 TUHH-SVA Security in Distributed Applications.
+%	Copyright © 2015 Alexander Isakov. Contact: <alexander.isakov@tuhh.de>
+%	Copyright © 2015 Marina Krotofil. Contact: <marina.krotofil@tuhh.de>
+%	Copyright © 2015 TUHH-SVA Security in Distributed Applications.
 %	All rights reserved.
 %	License: http://opensource.org/licenses/BSD-3-Clause
 %	----------------------------------------------------------------------
+function gui(varargin)
 
     %args = varargin;
     data = createData();
@@ -29,13 +26,21 @@ function gui(varargin)
                 
         %menu
         gui.menu.file = uimenu(gui.window, 'Label', 'File');
+        uimenu(gui.menu.file, 'Label', 'States', 'Callback', @onStates);
+        function onStates( ~, ~ )
+            winopen('States_Mapping.xlsx');
+        end % onStates
+        uimenu(gui.menu.file, 'Label', 'CV Mapping', 'Callback', @onMapping);
+        function onMapping( ~, ~ )
+            %winopen('');
+        end % onMapping
         uimenu(gui.menu.file, 'Label', 'Exit', 'Callback', @onExit);
         function onExit( ~, ~ )
             close(interface.window);
         end % onExit
         
-        gui.menu.edit = uimenu(gui.window, 'Label', 'Edit');
-        uimenu(gui.menu.edit, 'Label', 'Settings', 'Callback', @onSettings);
+        %gui.menu.edit = uimenu(gui.window, 'Label', 'Edit');
+        uimenu(gui.window, 'Label', 'Settings', 'Callback', @onSettings);
         function onSettings( ~, ~ )
             settingsWindow = setupChildWindow(gui.window);
             settings(settingsWindow, data.settings, @callback);
@@ -230,7 +235,7 @@ function gui(varargin)
                 'Style', 'popup', ...
                 'FontSize', 8, ...
                 'String', TimeUnits.Units(), ...
-                'Value', 1);
+                'Value', 2);
             set(hbox, 'Sizes', [-1 80]);
             uicontrol('Parent', vbox, ...
                       'Style', 'text', ...
@@ -262,7 +267,7 @@ function gui(varargin)
                 'Style', 'popup', ...
                 'FontSize', 8, ...
                 'String', TimeUnits.Units(), ...
-                'Value', 1);
+                'Value', 2);
             set(hbox, 'Sizes', [-1 80]);
             %Integrity
             gui.controls.integrity = uiextras.BoxPanel('Parent',panels, ...
@@ -515,11 +520,16 @@ function gui(varargin)
                 end
             end % onApply
             gui.controls.Run = uicontrol('Parent', box, ...
-                'String', 'Run', ...
+                'String', 'Run / Stop', ...
                 'Callback', @onRun);
             function onRun(~,~)
+                if bdIsLoaded(model) && strcmp(get_param(model,'SimulationStatus'), 'running')
+                    set_param(model,'SimulationCommand','stop');
+                    return;
+                end
                  progressbar('Simulation running..', 'Busy');
                  cHandler = onCleanup(@OnClosing);
+                 format long;
                  %load model
                  exec(['if ~bdIsLoaded(model)' ...
                             'load_system(model);' ...
@@ -537,12 +547,16 @@ function gui(varargin)
                  end
                  %set disturbances
                  exec(['set_disturb(''' mat2str(data.settings.simulation.disturbances) ''');']);
+                 %set constraints
+                 exec(['set_constraints(''' mat2str(data.settings.simulation.constraints) ''');']);
                  %set simulation duration
-                 exec(['set_param(model, ''StopTime'', ''' num2str(data.settings.simulation.duration) ''');']);
+                 exec(['set_param(model, ''StopTime'', ''' mat2str(data.settings.simulation.duration) ''');']);
                  %set callbacks
                  exec(['set_param(model, ''StopFcn'',''' strtrim(reshape(data.settings.simulation.callbacks.afterend.',1,[])) ''');']);
                  %run simulation
+                 warning off backtrace
                  exec('sim(model);');
+                 warning on backtrace
                  %% clean up function handler
                  function OnClosing()
                     exec('close_system(model, 0);');
@@ -602,12 +616,23 @@ function gui(varargin)
         
         set(interface.controls.mode, 'Value', controller.Mode.Value);
         set(interface.controls.type, 'Value', controller.Type.Value);
-        set(interface.controls.start, 'String', controller.Start);
-        set(interface.controls.duration, 'String', controller.Duration);
+        set(interface.controls.start, 'String', getTime(controller.Start, get(interface.controls.startunits, 'Value')));
+        set(interface.controls.duration, 'String', getTime(controller.Duration, get(interface.controls.durationunits, 'Value')));
         set(interface.controls.value, 'String', controller.Value);
         set(interface.controls.signal, 'String', controller.Signal);
         set(interface.controls.sampling, 'String', controller.Sampling);
         set(interface.controls.output, 'Value', controller.OutputType.Value);
+        
+        function value = getTime(hours, units)
+            switch units
+                case TimeUnits.MINUTES.Value
+                    value = hours*60;
+                case TimeUnits.SECONDS.Value
+                    value = hours*3600;
+                otherwise
+                    value = hours;
+            end
+        end
     end % updateControls
 
     function updateXmvs()
@@ -694,7 +719,7 @@ function gui(varargin)
     function extractedData = extractControlsData()
         extractedData.mode = AttackMode.FromValue(get(interface.controls.mode, 'Value'));
         extractedData.type = AttackType.FromValue(get(interface.controls.type, 'Value'));
-        start = str2double(get(interface.controls.start, 'String'));
+        start = str2double(strrep(get(interface.controls.start, 'String'), ',', '.'));
         if isempty(start)
             warning('VAC:gui:extractControlsData:start', 'Value must be a number.');
             set(interface.controls.start, 'String', 1);
@@ -708,7 +733,7 @@ function gui(varargin)
             otherwise
                 extractedData.start = start;
         end
-        duration = str2double(get(interface.controls.duration, 'String'));
+        duration = str2double(strrep(get(interface.controls.duration, 'String'), ',', '.'));
         if isempty(duration)
             warning('VAC:gui:extractControlsData:duration', 'Value must be a number.');
             set(interface.controls.duration, 'String', 1);
@@ -722,7 +747,7 @@ function gui(varargin)
             otherwise
                 extractedData.duration = duration;
         end
-        extractedData.value = str2double(get(interface.controls.value, 'String'));
+        extractedData.value = str2double(strrep(get(interface.controls.value, 'String'), ',', '.'));
         if isempty(extractedData.value)
             set(interface.controls.value, 'String', 1);
             error('VAC:gui:extractControlsData:value', 'Value must be a number.');
